@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SQLplusPython"
+version = "0.1.0"
+description = "Utils for SQL+Python - reliably work with SQL in Python apps "
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [{ name = "D Hansen", email = "vj3gt0o0l@mozmail.com" }]
+keywords = ["sqlalchemy", "mysql", "pandas", "database", "orm"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "numpy==2.3.4",
+  "pandas==2.3.3",
+  "SQLAlchemy==2.0.44",
+  "mysql-connector-python==9.4.0",
+  "python-dotenv==1.1.1",
+  "pytz==2025.2",
+  "scikit-learn==1.7.2",
+  "scipy==1.16.2",
+  "six==1.17.0",
+  "typing_extensions==4.15.0",
+  "tzdata==2025.2",
+  "joblib==1.5.2",
+  "threadpoolctl==3.6.0",
+  "python-dateutil==2.9.0.post0",
+  "greenlet==3.2.4",
+]
+
+[tool.setuptools]
+packages = ["modules", "modules.utils"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+# Include any non-Python files needed at runtime
+"modules" = ["py.typed"]
+
+[project.urls]
+Repository = "https://github.com/dennisdeh/SQLplusPython"
