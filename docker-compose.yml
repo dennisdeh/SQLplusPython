@@ -1,0 +1,62 @@
+# Compose file for Investio database and MQ
+
+services:
+  # p00_databases
+  db:
+    container_name: sqlpy_db
+    image: mariadb:lts-ubi
+    command:
+      - --max_allowed_packet=107374182400  # 100GB
+      - --max_connections=20000
+      - --innodb_buffer_pool_size=256M
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+    ports:
+      - ${DB_PORT_HOST}:${DB_PORT_CONT}
+    volumes:
+      # bind-mount the sql files that should be run while initialising
+      - ./mariadb/init:/docker-entrypoint-initdb.d
+      #- ./backups/db:/backup
+    healthcheck:  # define health-check that service is ready
+      interval: 2s
+      retries: 20
+      test:
+        [
+          "CMD",
+          "healthcheck.sh",
+          "--su-mysql",
+          "--connect",
+          "--innodb_initialized"
+        ]
+      timeout: 30s
+
+  # administration
+  adminer:
+    container_name: sqlpy_adminer
+    image: adminer:latest
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+    restart: always
+    ports:
+      - ${ADMINER_PORT_HOST}:${ADMINER_PORT_CONT}
+
+
+# redis with optimized configuration
+  redis:
+    container_name: sqlpy_redis
+    image: redis:8.0.0-alpine
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+    restart: always
+    ports:
+      - ${REDIS_PORT_HOST}:${REDIS_PORT_CONT}
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis/redis_data:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '4'
+          memory: 3G
