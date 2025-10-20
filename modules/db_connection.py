@@ -1747,7 +1747,7 @@ def get_symbol_data(
     filtering symbol column by the symbol
     """
     # parse the query and send it
-    query = f"SELECT * FROM `{table_name}` WHERE symbol = '{symbol}'"
+    query = f"SELECT * FROM `{table_name}` WHERE `{symbol_col}` = '{symbol}'"
     if table_name == "Meta data":
         d = pd.read_sql(query, engine).to_dict("records")[0]
         if "id" in d and drop_id_col:
