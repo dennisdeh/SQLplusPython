@@ -2,7 +2,7 @@ import pickle
 import datetime
 import pandas as pd
 import numpy as np
-import modules.db_connection as db
+import sqlpluspython.db_connection as db
 
 """
 Structure of a usual workflow: 

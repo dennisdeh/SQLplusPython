@@ -1,7 +1,7 @@
 import subprocess
 import os
 import platform
-from modules.utils.paths import load_env_variables
+from sqlpluspython.utils.paths import load_env_variables
 import redis
 
 

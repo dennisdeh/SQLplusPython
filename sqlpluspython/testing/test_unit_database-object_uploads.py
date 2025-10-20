@@ -2,13 +2,13 @@ import datetime
 import time
 import unittest
 import sklearn.preprocessing as pp
-import modules.db_connection as db
+import sqlpluspython.db_connection as db
 import numpy as np
 import itertools
-from modules.testing.aa_cleaner.clean_test_database import (
+from sqlpluspython.testing.aa_cleaner.clean_test_database import (
     reset_test_tables,
 )
-from modules.utils.generate_test_data import gdf
+from sqlpluspython.utils.generate_test_data import gdf
 
 
 class DatabaseFunctionsParameters(unittest.TestCase):

@@ -1,8 +1,8 @@
 import unittest
 import os
-import modules.db_connection as db
+import sqlpluspython.db_connection as db
 import sqlalchemy
-from modules.testing.aa_cleaner.clean_test_database import reset_test_tables
+from sqlpluspython.testing.aa_cleaner.clean_test_database import reset_test_tables
 
 path_db_env = "./.env"
 

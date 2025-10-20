@@ -37,12 +37,12 @@ dependencies = [
 ]
 
 [tool.setuptools]
-packages = ["modules", "modules.utils"]
+packages = ["sqlpluspython", "sqlpluspython.utils", "sqlpluspython.testing"]
 include-package-data = true
 
 [tool.setuptools.package-data]
 # Include any non-Python files needed at runtime
-"modules" = ["py.typed"]
+"sqlpluspython" = ["py.typed"]
 
 [project.urls]
 Repository = "https://github.com/dennisdeh/SQLplusPython"

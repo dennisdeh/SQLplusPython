@@ -1,7 +1,7 @@
 import numpy as np
 import sqlalchemy
-from modules.utils.paths import get_project_path
-import modules.utils.lists as lists
+from sqlpluspython.utils.paths import get_project_path
+import sqlpluspython.utils.lists as lists
 import pickle
 import pandas as pd
 import os

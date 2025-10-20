@@ -1,9 +1,9 @@
 import unittest
 import shutil
 import os
-import modules.p00_databases.db_connection as db
-from modules.utils.paths import get_project_path, delete_files_extension
-from modules.testing.aa_cleaner.clean_test_database import reset_test_tables
+import sqlpluspython.p00_databases.db_connection as db
+from sqlpluspython.utils.paths import get_project_path, delete_files_extension
+from sqlpluspython.testing.aa_cleaner.clean_test_database import reset_test_tables
 
 
 path_db_env = "./modules/p00_databases/.env"

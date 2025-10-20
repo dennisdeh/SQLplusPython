@@ -1,17 +1,17 @@
 import datetime
 import unittest
 from typing import Union
-import modules.db_connection as db
+import sqlpluspython.db_connection as db
 import pandas as pd
 import numpy as np
 import itertools
-import modules.utils.lists as lists
+import sqlpluspython.utils.lists as lists
 import sqlalchemy
-from modules.testing.aa_cleaner.clean_test_database import (
+from sqlpluspython.testing.aa_cleaner.clean_test_database import (
     clean_test_database,
     reset_test_tables,
 )
-from modules.utils.generate_test_data import gdf
+from sqlpluspython.utils.generate_test_data import gdf
 
 test_helpers_only = False
 skip_upload_df = False
