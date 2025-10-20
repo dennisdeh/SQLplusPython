@@ -4,6 +4,14 @@ import pandas as pd
 import numpy as np
 import modules.db_connection as db
 
+"""
+Structure of a usual workflow: 
+- Create an engine from environment variables and validate connectivity
+- Upload a DataFrame for a symbol, auto-creating the table and indexing date/symbol if desired
+- Later, append only new dates or overwrite the latest date to ensure continuity
+- Retrieve symbol data for analysis or export
+"""
+
 # 1) Load env and verify
 db.load_env_variables(path="./.env")
 assert db.check_env_variables_loaded(), "Env vars not loaded"
